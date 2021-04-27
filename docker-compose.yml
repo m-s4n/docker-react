@@ -1,0 +1,21 @@
+version: '3'
+
+services: 
+    react-app:
+        # default olarak Dockerfile ister. peki Dockerfile.dev dosyasını nasıl verebiliriz.
+        build: 
+            context: .
+            dockerfile: Dockerfile.dev
+        ports: 
+            - 3000:3000
+        volumes: 
+            - .:/usr/app
+    
+    
+    tests:
+        build: 
+            context: .
+            dockerfile: Dockerfile.dev
+        volumes: 
+            - .:/usr/app
+        command: ["npm", "run", "test"]
