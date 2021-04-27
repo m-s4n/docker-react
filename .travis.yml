@@ -1,0 +1,12 @@
+
+language: generic
+
+sudo: required  # izinlere ihtiyacı var
+
+services:
+  - dokcer
+
+before_install:
+  - docker build -t test -f Dockerfile.dev .   # test için conteynır oluşuturulur.
+
+# travis komutları çalıştırı ve çıktıını izler hata varsa testler düzgün çalışmadı kodda hata var.
